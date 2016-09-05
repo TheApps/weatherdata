@@ -1,7 +1,9 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -10,7 +12,7 @@ import java.util.TimeZone;
 
 public class WeatherData {
 
-	final static int MAX_SIZE = 10;
+	static int MAX_SIZE = 10;
 	final static String beginDateTime = "2016-01-01 00:00:00";
 	final static String endDateTime = "2016-01-01 23:59:59";
 
@@ -46,7 +48,7 @@ public class WeatherData {
 	final static int MAX_LONG = 180;
 	final static int MAX_ELEV = 100;
 
-	public static void main(String args[] ) throws IOException 
+	public static void main(String args[]) throws IOException 
 	{
 
 		float[] latitude = new float[MAX_SIZE];
@@ -56,6 +58,10 @@ public class WeatherData {
 		String[][] tempPresHumi = new String[MAX_SIZE][3+1];
 		Timestamp[] localTime = new Timestamp[MAX_SIZE];
 
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Please Enter the target file path:\n");
+		String path = br.readLine();
+
 		generatelatitude(latitude,MIN_LAT,MAX_LAT);
 		generatelongitude(longitude,MIN_LONG,MAX_LONG);
 		generateelevation(elevation,MIN_ELEV,MAX_ELEV);
@@ -63,7 +69,8 @@ public class WeatherData {
 		generateTempPresHumi(tempPresHumi);
 		generateDate(localTime);
 
-		File file = new File("D://weatherdata.txt");
+
+		File file = new File(path);
 		FileOutputStream fos = new FileOutputStream(file);
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
@@ -73,6 +80,8 @@ public class WeatherData {
 			bw.newLine();
 		}
 		bw.close();
+
+		System.out.println("Weather Data Generated");
 	}
 
 	private static String convertTimestampToISO(Timestamp ts) {
