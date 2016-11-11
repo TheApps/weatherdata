@@ -1,1 +1,6 @@
-19 2hello how are you:GREETING 3hello how are you:QUESTION 4hi how are you:GREETING 5hi how are you:QUESTION 6hey how are you:GREETING 7hey how are you:QUESTION 8what is your name:QUESTION 9do you hate me:QUESTION 10do you hate me:SAD 11i hate you:ANGRY 12i hate myself:SAD 13see you later:FAREWELL 14stop:ANGRY 15whats up:QUESTION 16whats up:GREETING 17whats new:QUESTION 18whats new:GREETING 19what is new:QUESTION 20what is new:GREETING
+19 
+hello how are you:GREETING
+hello how are you:QUESTION 
+hi how are you:GREETING 
+hi how are you:QUESTION 
+hey how are you:GREETING hey how are you:QUESTION what is your name:QUESTION do you hate me:QUESTION do you hate me:SAD i hate you:ANGRY i hate myself:SAD see you later:FAREWELL stop:ANGRY whats up:QUESTION whats up:GREETING whats new:QUESTION whats new:GREETING what is new:QUESTION what is new:GREETING
